@@ -1,5 +1,5 @@
-# Angular2 Boilerplate
-Angular 2 boilerplate - based on angular-cli
+# Angular2 Shopping List
+Angular2 Shopping List - based on angular-cli
 
 #### Usage
 Important: Typescript and npm has to be installed on your machine!
