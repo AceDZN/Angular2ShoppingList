@@ -1,0 +1,13 @@
+.fork-me {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 0;
+  max-width: 25%;
+  cursor: pointer;  
+}
+
+.fork-me img {
+  max-width: 100%;
+  cursor: pointer;
+}

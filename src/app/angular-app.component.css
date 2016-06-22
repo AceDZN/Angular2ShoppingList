@@ -1,0 +1,28 @@
+
+@keyframes upDown {
+    0% {margin-top: 0;}
+    50% {margin-top: 25px;}
+    100% {margin-top: 0;}
+}
+.angular-logo{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  vertical-align: top;
+  padding: 1% 20px;
+  z-index:-1;
+  opacity: 0.1;
+  transition: all 1s;
+}
+.angular-logo svg{
+  max-height: 290px;
+  vertical-align: top;
+  top: 0;
+  max-width: 15%;
+  animation: upDown 5s infinite;
+}
+body:hover .angular-logo{
+  opacity: 0.2;
+}
