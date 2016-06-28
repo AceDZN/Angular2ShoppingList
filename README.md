@@ -6,7 +6,7 @@ Important: Typescript and npm has to be installed on your machine!
 
 1: Clone repo
 ```
-git clone https://github.com/AceDZN/AngularBoilerplate.git
+git clone https://github.com/AceDZN/Angular2ShoppingList.git
 ```
 2: Install packages
 ```
