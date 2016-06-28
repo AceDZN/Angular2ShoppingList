@@ -1,0 +1,281 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900);
+body {
+  padding: 100px 10%;
+  margin:0;
+  font-family: 'Roboto',sans-serif;
+  font-weight: 400; }
+
+  @keyframes upDown {
+      0% {margin-top: 0;}
+      50% {margin-top: 25px;}
+      100% {margin-top: 0;}
+  }
+  .angular-logo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    vertical-align: top;
+    padding: 1% 20px;
+    z-index:-1;
+    opacity: 0.1;
+    transition: all 1s;
+  }
+  .angular-logo svg{
+    max-height: 290px;
+    vertical-align: top;
+    top: 0;
+    max-width: 15%;
+    animation: upDown 5s infinite;
+  }
+  body:hover .angular-logo{
+    opacity: 0.2;
+  }
+
+  // Global Variables
+  $main-width:600;
+  $base-font-size:16;
+
+  // Mixins
+  @mixin radius($tl:0,$tr:0,$br:0,$bl:0){
+    border-radius: $tl $tr $br $bl;
+    -moz-border-radius: $tl $tr $br $bl;
+    -webkit-border-radius: $tl $tr $br $bl;
+  }
+
+  @function calc-percent($target:0, $context: $main-width){
+      @return percentage($target / $context);
+  }
+
+  @function calc-font-em($px, $base: $base-font-size) {
+      @return ($px / $base) * 1em;
+  }
+
+  @function calc-em($pixels, $context: $base-font-size){
+      @return #{$pixels/$context}em;
+  }
+.params_demo{
+  position:absolute;
+  top:0;
+  left:0;
+  background: #fff;
+  border:1px solid red;
+  padding:20px;
+}
+  html{font-size: $base-font-size;}
+  input:focus {outline:0;}
+  .text-center{text-align:center;}
+  // App Styling
+  section{
+    margin: 40px auto 20px;
+    width: 100%;
+    max-width: #{$main-width}px;
+    @include radius(calc-em(5),calc-em(5),calc-em(5),calc-em(5));
+    box-shadow: 0 0 calc-em(10) 0 #797979;
+  }
+  input[type='text']{
+    border: 1px solid #c0c0c0;
+    @include radius(calc-em(5),calc-em(5),calc-em(5),calc-em(5));
+    line-height: normal;
+    padding: 0 10px;
+    box-sizing: border-box;
+    &.ng-invalid{
+      box-shadow: inset 0 0 1px 0 red;
+    }
+    &.ng-valid{
+      box-shadow: inset 0 0 1px 0 green;
+    }
+
+  }
+
+
+
+
+  .toodoo-list{
+    font-family: 'Roboto', sans-serif;
+    margin:0;
+    width:100%;
+    list-style: none;
+    padding:0;
+    li{
+      @extend .toodoo-list;
+      height:calc-em(50);
+      line-height: calc-em(50);
+      border:1px solid #c0c0c0;
+      border-top-width: 0px;
+      overflow:hidden;
+      &:hover input[type='button']{
+        display:block!important;
+      }
+      &:nth-child(1n){
+        background:#F5F4F4;;
+      }
+      &:nth-child(2n){
+        background:#fff;;
+      }
+
+      &:first-child{
+        border-top-width: 1px;
+        @include radius(calc-em(5),calc-em(5),0,0);
+        height:calc-em(60);
+        line-height: calc-em(60);
+        input[type='checkbox']{
+          height: calc-em(60);
+        }
+      }
+      &:last-child{
+
+        @include radius(0,0,calc-em(5),calc-em(5));
+      }
+      &:only-child{
+        border-top-width: 1px;
+        @include radius(calc-em(5),calc-em(5),calc-em(5),calc-em(5));
+      }
+      &:after {
+         visibility: hidden;
+         display: block;
+         font-size: 0;
+         content: " ";
+         clear: both;
+         height: 0;
+       }
+      &.todo-done{
+       text-decoration: line-through;
+       box-shadow: inset 0 calc-em(25) 0 0 rgba(192, 192, 192, 0.12);
+       label{
+        text-decoration: line-through;
+        }
+      }
+      label{
+        cursor:pointer;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: calc-percent(450);
+        display: inline-block;
+        float: left;
+        margin-bottom: 0;
+        span.created-on{
+          display:none;
+          font-size: calc-font-em(12);
+        }
+        span.amount{
+          font-weight: 600;
+          font-size: 25px;
+          width: 50px;
+          text-align: center;
+          border: 1px solid rgba(0, 0, 0, 0.06);
+          border-top-width: 0;
+          border-bottom-width: 0;
+          margin-right: 10px;
+          display: block;
+          height: 100%;
+          float: left;
+          padding: 0 10px;
+          color: #fffccd;
+          text-shadow: 0px 0px 2px #000,0px 0px 2px #000,0px 0px 2px #000,0px 0px 2px #000,0px 0px 10px #fff;
+        }
+      }
+      input[type='checkbox']{
+        display: inline-block;
+        float: left;
+        margin: 0 calc-em(10);
+        height: calc-em(50);
+        width:calc-percent(20);
+      }
+      input[type='text']{
+        @extend input[type='text'];
+        height: calc-em(30);
+        width: calc-percent(360);
+      }
+      input[type='number']{
+        @extend input[type='text'];
+        padding:0 10px;
+        height: calc-em(30);
+        width: calc-percent(60);
+      }
+
+      input[type='button']{
+        width:calc-percent(25);
+        float:right;
+        margin-top: calc-em(12.5);
+        margin-left: calc-em(10);
+        margin-right: calc-em(10);
+        display:inline;
+        background:#f7f7f7;
+        @include radius(calc-em(25),calc-em(25),calc-em(25),calc-em(25));
+        padding:0;
+        height:calc-em(25);
+        width:calc-percent(25);
+        border:calc-em(1) solid #c0c0c0;
+        color:#D20000;
+        text-align: center;
+        line-height: 1.55em;
+
+        &:hover{
+          background:#fff;
+
+        }
+        &:focus {outline:0;}
+        &:active{
+          outline: none;
+          border: none;
+          color:#fff;
+          background:#D20000;
+        }
+        &.edit-btn{
+          display:none;
+          padding: 0;
+          border-radius: 0;
+          border: transparent 0px solid;
+          background: transparent;
+          font-size: 30px;
+          margin-top: 0px;
+          color:#000;
+        }
+      }
+
+      input[type='submit']{
+        @extend input[type='button'];
+        background: green;
+        color:#fff;
+        height:calc-em(37);
+        line-height: calc-em(37);
+        margin-top:calc-em(15);
+        font-size:calc-font-em(14);
+        display: block;
+        width:calc-percent(100);
+        border:1px solid #c0c0c0;
+        @include radius(calc-em(5),calc-em(5),calc-em(5),calc-em(5));
+        &:hover{
+          background:#fff;
+          border-color: green;
+          color:green;
+        }
+        &:focus {outline:0;}
+        &:active{
+          color:#fff;
+          background:green;
+        }
+        &.delete-item{
+          background: red;
+          &:hover{
+            background:#fff;
+            border-color: red;
+            color:red;
+          }
+          &:active{
+            color:#fff;
+            background:red;
+          }
+        }
+      }
+
+    }
+
+
+  }
+  .text-center{
+    text-align:center;
+  }

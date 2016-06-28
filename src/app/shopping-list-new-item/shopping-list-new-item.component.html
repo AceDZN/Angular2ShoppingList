@@ -1,0 +1,7 @@
+
+<form name="addNewForm" novalidate>
+  <input type="checkbox" [(ngModel)]="item.done">
+  <input required type="text" placeholder="Add New Item to the List" [(ngModel)]="item.value">
+  <input required type="number" min="1" [(ngModel)]="item.amount">
+  <input type="submit" value="Add To List" class="add-new" (click)="addItemOnClick()">
+</form>

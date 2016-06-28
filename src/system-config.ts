@@ -33,6 +33,9 @@ const barrels: string[] = [
   'app/acedzn-logo',
   'app/greeting',
   'app/platforms-list',
+  'app/shopping-list',
+  'app/shopping-list-new-item',
+  'app/shopping-list-item',
   /** @cli-barrel */
 ];
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {ForkBannerComponent} from './fork-banner/fork-banner.component';
 import {AcedznLogoComponent} from './acedzn-logo/acedzn-logo.component';
+import {ShoppingListComponent} from './shopping-list/shopping-list.component';
 
 @Component({
   moduleId: module.id,
@@ -9,7 +10,8 @@ import {AcedznLogoComponent} from './acedzn-logo/acedzn-logo.component';
   styleUrls: ['angular-app.component.css'],
   directives:[
     ForkBannerComponent,
-    AcedznLogoComponent
+    AcedznLogoComponent,
+    ShoppingListComponent
   ]
 })
 export class AngularAppComponent {

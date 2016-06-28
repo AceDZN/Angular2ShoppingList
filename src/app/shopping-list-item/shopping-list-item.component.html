@@ -1,0 +1,6 @@
+<form name="addNewForm" novalidate>
+  <input type="checkbox" [(ngModel)]="item.done">
+  <input required type="text" placeholder="Add New Item to the List" value="{{item.value}} - {{item.done}}" [(ngModel)]="item.value">
+  <input required type="number" min="1" [(ngModel)]="item.amount">
+  <input type="submit" value="✖ DELETE" class="delete-item" (click)="onItemDelete()">
+</form>

@@ -1,0 +1,26 @@
+<section>
+  <ul class="toodoo-list">
+    <li>
+      <shopping-list-new-item (itemAdded)="onItemAdded($event)"></shopping-list-new-item>
+    </li>
+    <li *ngFor="let item of listItems,let i = index" ng-class="{'todo-done': item.done}" class="ng-scope">
+      <input type="button" value="✖" *ngIf="item.canBeDeleted" (click)="itemRemove(item)" />
+      <input type="button" class="edit-btn" value="&#x270e;" (click)="onItemEdit(item)" />
+      <input id="item-{{i}}" type="checkbox" [(ngModel)]="item.done">
+      <label htmlFor="item-{{i}}" class="ng-binding">
+        <span *ngIf="item.createdOn" class="created-on">{{item.createdOn}}</span>
+        <span *ngIf="item.amount" class="amount">{{item.amount}}</span>
+        {{item.value}} - {{item.done}}
+      </label>
+    </li>
+    <li *ngIf="selectedItem != null">
+      <shopping-list-item [item]="selectedItem" (removedItem)="itemRemove($event)"></shopping-list-item>
+    </li>
+  </ul>
+</section>
+<div class="params_demo" *ngIf="selectedItem != null">
+  selectedItem Item:<br />
+  name:{{selectedItem.value}}<br />
+  done:{{selectedItem.done}}<br />
+  amount:{{selectedItem.amount}}
+</div>
